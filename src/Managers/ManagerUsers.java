@@ -5,7 +5,7 @@ package Managers;
  * @author kevin
  */
 
-import Conection.Conection;
+import Conection.ConnectToMySQL;
 import java.io.*;
 import Classes.User;
 import java.sql.SQLException;
@@ -16,7 +16,7 @@ public class ManagerUsers {
     
     public static String registerUser (String[] newuser) {
         String validation;
-        Conection con = new Conection();
+        ConnectToMySQL con = new ConnectToMySQL();
         
         //- User data
         String id = newuser[0];

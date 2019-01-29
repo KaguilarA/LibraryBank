@@ -4,9 +4,12 @@ package Classes;
  *
  * @author kevin
  */
+
+import java.util.ArrayList;
+
 public class User {
     protected String id, name, surname, secondSurname, username, email, password;
-    protected Account[] accountList;
+    protected ArrayList<Account> accountList  = new ArrayList<>();
 
     public User() {
     }
@@ -23,7 +26,8 @@ public class User {
         this.password = password;
     }
 
-    //- Gets
+    // Getter
+
     public String getId() {
         return id;
     }
@@ -45,11 +49,12 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public Account[] getAccountList() {
+    public ArrayList<Account> getAccountList() {
         return accountList;
     }
 
-    //- Sets
+    // Setter
+ 
     public void setId(String id) {
         this.id = id;
     }
@@ -71,19 +76,33 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public void setAccountList(Account[] accountList) {
+    public void setAccountList(ArrayList<Account> accountList) {
         this.accountList = accountList;
     }
 
-    //- To String
+    // To String
+
     @Override
     public String toString() {
-        return "Cedula = " + id + ", Nombre = " + name + 
-                ", Primer Apellido = " + surname + 
-                ", Segundo Apellido=" + secondSurname +
-                ", Nombre de Usuario = " + username + 
-                ", Correo electrónico = " + email + ", Contraseña=" + password + 
-                ", Cuentas = " + accountList.toString();
+        return "{" + "id: " + id + ", name: " + name + ", surname: " + surname 
+                + ", secondSurname: " + secondSurname + ", username: "
+                + username + ", email: " + email + ", password: " + password + 
+                ", accountList: " + accountList + '}';
     }
     
+    // Methods
+    
+    public void addNewAccount(Account newAccount) {
+        this.accountList.add(newAccount);
+    }
+    
+    public Boolean validateAccountRepeat(int accountNumber){
+        boolean validate = false;
+        for(Account account : accountList) {
+            if(account.getAccountNumber() == accountNumber) {
+                validate = false;
+            }
+        }
+        return validate;
+    }
 }

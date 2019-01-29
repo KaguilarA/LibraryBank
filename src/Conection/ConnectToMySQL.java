@@ -14,7 +14,7 @@ import java.sql.CallableStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Conection 
+public class ConnectToMySQL 
 {
 
     // Global variables

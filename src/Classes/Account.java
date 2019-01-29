@@ -1,66 +1,77 @@
 package Classes;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author kevin
+ * @author Kevin Aguilar
  */
 public class Account 
 {
-    protected User owner = new User();
-    protected Money typeOfCurrency = new Money();
+    protected int ownerId, currencyId, accountNumber;
     protected float balance;
-    protected int accountNumber;
+    protected ArrayList<Integer> transferHistory  = new ArrayList<>();
 
     public Account() 
     {
     }
 
-    public Account(float pbalance, int paccountnumber, User powner, 
-            Money pcurrency) 
-    {
-        this.owner = powner;
-        this.typeOfCurrency = pcurrency;
-        this.balance = pbalance;
-        this.accountNumber = paccountnumber;
+    public Account(int ownerId, int currencyId, int accountNumber, float balance) {
+        this.ownerId = ownerId;
+        this.currencyId = currencyId;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
     }
+    
+    // Getters
 
-    //- Gets
-    public User getOwner() 
-    {
-        return owner;
+    public int getOwnerId() {
+        return ownerId;
     }
-    public Money getTypeOfCurrency() 
-    {
-        return typeOfCurrency;
+    public int getCurrencyId() {
+        return currencyId;
     }
-    public float getBalance() 
-    {
-        return balance;
-    }
-    public int getAccountNumber() 
-    {
+    public int getAccountNumber() {
         return accountNumber;
     }
+    public float getBalance() {
+        return balance;
+    }
+    public ArrayList<Integer> getTransferHistory() {
+        return transferHistory;
+    }
+    
+    // Setter
 
-    //- Sets
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setOwnerId(int ownerId) {
+        this.ownerId = ownerId;
     }
-    public void setTypeOfCurrency(Money typeOfCurrency) {
-        this.typeOfCurrency = typeOfCurrency;
-    }
-    public void setBalance(float balance) {
-        this.balance = balance;
+    public void setCurrencyId(int currencyId) {
+        this.currencyId = currencyId;
     }
     public void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
     }
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+    public void setTransferHistory(ArrayList<Integer> transferHistory) {
+        this.transferHistory = transferHistory;
+    }
+    
+    // ToString
 
-    //- To String
     @Override
     public String toString() {
-        return "Nombre del cliente = " + owner + ", Moneda = " + typeOfCurrency 
-                + ", Saldo = " + balance + 
-                ", Numero de cuenta = " + accountNumber;
+        return "{" + "ownerId: " + getOwnerId() + ", currencyId: " + 
+                getCurrencyId() + ", accountNumber: " + getAccountNumber() + 
+                ", balance: " + getBalance() + ", transferHistory: " + 
+                getTransferHistory() + '}';
+    }
+    
+    // Methods
+    
+    public void addTransferHistory(int transferId) {
+        this.transferHistory.add(transferId);
     }
 }

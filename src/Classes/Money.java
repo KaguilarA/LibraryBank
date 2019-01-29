@@ -5,46 +5,71 @@ package Classes;
  * @author kevin
  */
 public class Money {
-    protected String moneyName;
-    protected int moneyId;
+    protected String name, prefix, sufix;
+    protected int id;
     protected float exchange;
 
     public Money() {
     }
 
-    public Money(String moneyName, int moneyId, float exchange) {
-        this.moneyName = moneyName;
-        this.moneyId = moneyId;
+    public Money(String name, String prefix, String sufix, int id, float exchange) {
+        this.name = name;
+        this.prefix = prefix;
+        this.sufix = sufix;
+        this.id = id;
         this.exchange = exchange;
     }
+    
+    // Getter
 
-    //- Gets
-    public String getMoneyName() {
-        return moneyName;
+    public String getName() {
+        return name;
     }
-    public int getMoneyId() {
-        return moneyId;
+
+    public String getPrefix() {
+        return prefix;
     }
+
+    public String getSufix() {
+        return sufix;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public float getExchange() {
         return exchange;
     }
+    
+    // Setters
 
-    //- Sets
-    public void setMoneyName(String moneyName) {
-        this.moneyName = moneyName;
+    public void setName(String name) {
+        this.name = name;
     }
-    public void setMoneyId(int moneyId) {
-        this.moneyId = moneyId;
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
+
+    public void setSufix(String sufix) {
+        this.sufix = sufix;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setExchange(float exchange) {
         this.exchange = exchange;
     }
+    
+    // ToString
 
-    //- to String
     @Override
     public String toString() {
-        return "Moneda = " + moneyName + ", Identificador = " + moneyId +
-                ", Tipo de cambio = " + exchange;
+        return "{" + "name: " + getName() + ", prefix: " + getPrefix() + 
+                ", sufix: " + getSufix() + ", id: " + getId() + ", exchange: " 
+                + getExchange() + '}';
     }
-    
 }
